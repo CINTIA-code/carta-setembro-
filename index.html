@@ -1,57 +1,50 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Para mim — Setembro de 2026 💛</title>
+    <title>Uma carta para mim — Setembro 2026</title>
 
     <style>
 
         @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Playfair+Display:ital,wght@0,400;0,500;1,400&display=swap');
 
         :root {
-            --amarelo: #F6C945;
-            --amarelo-claro: #FFF4C2;
-            --amarelo-suave: #FFF9E5;
-
-            --verde: #65785D;
-            --verde-claro: #DCE5D5;
-
-            --azul: #6F8990;
-            --creme: #FCFAF2;
-
-            --texto: #35352F;
-            --texto-suave: #77776E;
-
-            --sombra: rgba(70, 70, 50, 0.12);
+            --yellow: #F4C842;
+            --yellow-light: #FFF4C4;
+            --cream: #FCFAF2;
+            --green: #687A60;
+            --green-light: #E2E9DD;
+            --blue: #8BA3A7;
+            --text: #292923;
+            --soft: #77766D;
         }
-
 
         * {
+            box-sizing: border-box;
             margin: 0;
             padding: 0;
-            box-sizing: border-box;
         }
-
 
         body {
             min-height: 100vh;
 
             background:
                 radial-gradient(
-                    circle at 20% 10%,
-                    #FFF4C2 0%,
-                    transparent 35%
+                    circle at 15% 15%,
+                    rgba(244, 200, 66, 0.22),
+                    transparent 30%
                 ),
                 radial-gradient(
-                    circle at 90% 80%,
-                    #DCE5D5 0%,
+                    circle at 85% 85%,
+                    rgba(104, 122, 96, 0.16),
                     transparent 35%
                 ),
-                var(--creme);
+                var(--cream);
 
-            color: var(--texto);
+            color: var(--text);
 
             font-family: "DM Sans", sans-serif;
 
@@ -62,11 +55,10 @@
             padding: 20px;
         }
 
-
-        .livro {
+        .book {
             width: 100%;
             max-width: 850px;
-            min-height: 650px;
+            min-height: 680px;
 
             position: relative;
 
@@ -74,42 +66,34 @@
 
             border-radius: 28px;
 
-            box-shadow:
-                0 25px 70px var(--sombra);
-
             overflow: hidden;
 
-            backdrop-filter: blur(12px);
+            box-shadow:
+                0 30px 80px rgba(50, 60, 40, 0.14);
+
+            backdrop-filter: blur(10px);
         }
 
-
-        /* ------------------------------
-           PÁGINAS
-        ------------------------------ */
-
-        .pagina {
+        .page {
             display: none;
 
-            min-height: 650px;
+            min-height: 680px;
 
-            padding: 60px 55px;
+            padding: 65px 65px 110px;
 
-            animation:
-                aparecer 0.5s ease;
+            animation: pageIn .45s ease;
         }
 
-
-        .pagina.ativa {
+        .page.active {
             display: flex;
             flex-direction: column;
         }
 
-
-        @keyframes aparecer {
+        @keyframes pageIn {
 
             from {
                 opacity: 0;
-                transform: translateX(15px);
+                transform: translateX(18px);
             }
 
             to {
@@ -119,278 +103,379 @@
 
         }
 
-
-        /* ------------------------------
+        /* =========================
            CAPA
-        ------------------------------ */
+        ========================= */
 
-        .capa {
+        .cover {
             justify-content: center;
-            align-items: center;
+            align-items: flex-start;
+            text-align: left;
 
-            text-align: center;
-
-            background:
-                radial-gradient(
-                    circle at 50% 25%,
-                    rgba(246,201,69,0.45),
-                    transparent 35%
-                );
+            padding-top: 85px;
         }
 
-
-        .sol {
-            width: 105px;
-            height: 105px;
-
-            background: var(--amarelo);
-
-            border-radius: 50%;
-
-            margin-bottom: 35px;
-
-            box-shadow:
-                0 0 0 15px rgba(246,201,69,0.10),
-                0 0 0 30px rgba(246,201,69,0.05);
-        }
-
-
-        .capa h1 {
-            font-family: "Playfair Display", serif;
-
-            font-size: clamp(38px, 7vw, 65px);
-
-            font-weight: 400;
-
-            line-height: 1.05;
-
-            margin-bottom: 18px;
-        }
-
-
-        .capa h1 span {
-            color: var(--amarelo);
-        }
-
-
-        .subtitulo {
-            color: var(--texto-suave);
-
-            font-size: 16px;
-
-            max-width: 430px;
-
-            line-height: 1.7;
-        }
-
-
-        .data {
-            margin-top: 30px;
-
-            color: var(--verde);
-
-            font-size: 13px;
-
-            letter-spacing: 2px;
-
-            text-transform: uppercase;
-        }
-
-
-        /* ------------------------------
-           CONTEÚDO
-        ------------------------------ */
-
-        .numero {
-            color: var(--amarelo);
-
+        .mini-title {
             font-size: 13px;
 
             letter-spacing: 3px;
 
             text-transform: uppercase;
 
-            margin-bottom: 18px;
+            color: var(--text);
+
+            margin-bottom: 55px;
         }
 
+        .sun {
+            width: 95px;
+            height: 95px;
+
+            background: var(--yellow);
+
+            border-radius: 50%;
+
+            margin-bottom: 45px;
+
+            box-shadow:
+                0 0 0 14px rgba(244, 200, 66, 0.10),
+                0 0 0 28px rgba(244, 200, 66, 0.05);
+        }
+
+        .cover h1 {
+            font-family: "Playfair Display", serif;
+
+            font-size: clamp(58px, 11vw, 100px);
+
+            line-height: .95;
+
+            font-weight: 400;
+
+            margin-bottom: 25px;
+        }
+
+        .cover h1 span {
+            color: var(--yellow);
+        }
+
+        .year {
+            font-family: "Playfair Display", serif;
+
+            font-size: 28px;
+
+            margin-bottom: 45px;
+        }
+
+        .cover-text {
+            font-family: "Playfair Display", serif;
+
+            font-size: 22px;
+
+            line-height: 1.5;
+
+            max-width: 470px;
+
+            color: #57564F;
+        }
+
+        .open-button {
+            margin-top: 40px;
+
+            border: none;
+
+            background: var(--green);
+
+            color: white;
+
+            padding: 15px 25px;
+
+            border-radius: 50px;
+
+            font-size: 14px;
+
+            cursor: pointer;
+
+            transition: .2s;
+        }
+
+        .open-button:hover {
+            transform: translateY(-2px);
+        }
+
+        /* =========================
+           TEXTOS
+        ========================= */
+
+        .section {
+            font-size: 12px;
+
+            letter-spacing: 3px;
+
+            text-transform: uppercase;
+
+            color: var(--yellow);
+
+            margin-bottom: 18px;
+        }
 
         h2 {
             font-family: "Playfair Display", serif;
 
-            font-size: clamp(32px, 6vw, 48px);
+            font-size: clamp(38px, 6vw, 58px);
 
             font-weight: 400;
 
-            line-height: 1.15;
+            line-height: 1.12;
 
-            margin-bottom: 30px;
+            margin-bottom: 35px;
         }
-
 
         h2 em {
-            color: var(--verde);
+            color: var(--green);
 
             font-weight: 400;
         }
 
-
         p {
-            font-size: 16px;
+            font-family: "DM Sans", sans-serif;
+
+            font-size: 17px;
 
             line-height: 1.9;
 
-            color: #55554E;
+            color: #55544D;
 
-            margin-bottom: 20px;
+            margin-bottom: 24px;
         }
 
+        .highlight {
+            border-left: 3px solid var(--yellow);
 
-        .destaque {
-            border-left: 3px solid var(--amarelo);
+            background: var(--yellow-light);
 
-            padding: 18px 22px;
-
-            margin: 15px 0 25px;
-
-            background: var(--amarelo-suave);
+            padding: 20px 23px;
 
             border-radius: 0 15px 15px 0;
 
+            margin: 8px 0 25px;
+
             font-family: "Playfair Display", serif;
 
-            font-size: 21px;
+            font-size: 23px;
 
-            line-height: 1.6;
+            line-height: 1.5;
         }
 
-
-        /* ------------------------------
+        /* =========================
            LISTA
-        ------------------------------ */
+        ========================= */
 
-        .lista {
-            display: grid;
+        .list {
+            display: flex;
 
-            gap: 14px;
+            flex-direction: column;
 
-            margin-top: 10px;
+            gap: 13px;
         }
 
-
-        .item {
+        .list-item {
             display: flex;
+
+            align-items: center;
 
             gap: 15px;
 
-            align-items: flex-start;
-
-            padding: 17px;
+            background: rgba(255,255,255,.7);
 
             border-radius: 16px;
 
-            background: rgba(255,255,255,0.75);
+            padding: 15px 18px;
         }
 
-
-        .item span {
-            width: 30px;
-            height: 30px;
+        .dot {
+            width: 31px;
+            height: 31px;
 
             flex-shrink: 0;
 
             border-radius: 50%;
 
-            background: var(--amarelo-claro);
+            background: var(--yellow-light);
 
             display: flex;
 
+            justify-content: center;
+
             align-items: center;
 
-            justify-content: center;
+            color: var(--green);
+
+            font-size: 14px;
         }
 
-
-        .item p {
+        .list-item p {
             margin: 0;
 
             font-size: 15px;
 
-            line-height: 1.6;
+            line-height: 1.55;
         }
 
+        /* =========================
+           PÁGINA DO PROJETO
+        ========================= */
 
-        /* ------------------------------
+        .project-page {
+            justify-content: center;
+
+            text-align: center;
+
+            align-items: center;
+        }
+
+        .project-label {
+            font-size: 11px;
+
+            letter-spacing: 4px;
+
+            text-transform: uppercase;
+
+            color: var(--green);
+
+            margin-bottom: 28px;
+        }
+
+        .project-symbol {
+            font-family: "Playfair Display", serif;
+
+            font-size: 34px;
+
+            color: var(--yellow);
+
+            margin-bottom: 30px;
+        }
+
+        .project-page h2 {
+            max-width: 650px;
+
+            margin-bottom: 30px;
+        }
+
+        .project-page p {
+            max-width: 590px;
+
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .project-card {
+            margin-top: 12px;
+
+            padding: 20px 28px;
+
+            border: 1px solid rgba(104,122,96,.18);
+
+            border-radius: 18px;
+
+            background: rgba(226,233,221,.35);
+        }
+
+        .project-card strong {
+            display: block;
+
+            font-family: "Playfair Display", serif;
+
+            font-size: 19px;
+
+            font-weight: 400;
+
+            color: var(--green);
+
+            margin-bottom: 7px;
+        }
+
+        .project-card span {
+            font-size: 12px;
+
+            color: var(--soft);
+
+            letter-spacing: 1px;
+        }
+
+        /* =========================
            FRASE
-        ------------------------------ */
+        ========================= */
 
-        .frase {
-            margin: auto 0;
+        .quote-page {
+            justify-content: center;
+
+            align-items: center;
 
             text-align: center;
         }
 
-
-        .frase-texto {
+        .big-quote {
             font-family: "Playfair Display", serif;
 
-            font-size: clamp(30px, 6vw, 50px);
+            font-size: clamp(35px, 7vw, 65px);
 
-            line-height: 1.3;
+            line-height: 1.25;
 
             font-style: italic;
+
+            max-width: 700px;
         }
 
-
-        .frase-texto span {
-            color: var(--amarelo);
+        .big-quote span {
+            color: var(--yellow);
         }
 
-
-        /* ------------------------------
+        /* =========================
            FINAL
-        ------------------------------ */
+        ========================= */
 
         .final {
             justify-content: center;
 
+            align-items: center;
+
             text-align: center;
         }
 
+        .final .sun {
+            margin-bottom: 40px;
+        }
 
-        .assinatura {
-            margin-top: 35px;
-
+        .signature {
             font-family: "Playfair Display", serif;
 
-            font-size: 26px;
+            font-size: 28px;
 
             font-style: italic;
 
-            color: var(--verde);
+            color: var(--green);
+
+            margin-top: 25px;
         }
 
+        .small {
+            margin-top: 15px;
 
-        .pequeno {
-            color: var(--texto-suave);
+            color: var(--soft);
 
             font-size: 13px;
-
-            margin-top: 10px;
         }
 
-
-        /* ------------------------------
+        /* =========================
            NAVEGAÇÃO
-        ------------------------------ */
+        ========================= */
 
-        .navegacao {
-
+        .navigation {
             position: absolute;
 
             bottom: 25px;
 
             left: 0;
-
             right: 0;
 
             display: flex;
@@ -401,96 +486,53 @@
 
             gap: 18px;
 
-            z-index: 20;
+            z-index: 10;
         }
 
-
-        button {
-            border: none;
-
-            cursor: pointer;
-
-            font-family: "DM Sans", sans-serif;
-        }
-
-
-        .btn {
-
+        .nav-button {
             width: 48px;
             height: 48px;
 
+            border: none;
+
             border-radius: 50%;
 
-            background: var(--amarelo);
+            background: var(--yellow);
 
-            color: #4C421E;
+            color: #554817;
 
-            font-size: 18px;
+            font-size: 20px;
 
-            transition: 0.2s;
+            cursor: pointer;
+
+            transition: .2s;
         }
 
-
-        .btn:hover {
+        .nav-button:hover {
             transform: scale(1.08);
         }
 
-
-        .btn:disabled {
-
-            opacity: 0.25;
+        .nav-button:disabled {
+            opacity: .25;
 
             cursor: default;
 
             transform: none;
         }
 
-
-        .indicador {
-
-            font-size: 13px;
-
-            color: var(--texto-suave);
-
-            min-width: 55px;
+        .counter {
+            min-width: 60px;
 
             text-align: center;
+
+            color: var(--soft);
+
+            font-size: 13px;
         }
 
-
-        /* ------------------------------
-           BOTÃO ABRIR
-        ------------------------------ */
-
-        .abrir {
-
-            margin-top: 35px;
-
-            padding: 15px 28px;
-
-            border-radius: 100px;
-
-            background: var(--verde);
-
-            color: white;
-
-            font-size: 14px;
-
-            transition: 0.25s;
-        }
-
-
-        .abrir:hover {
-            transform: translateY(-2px);
-
-            box-shadow:
-                0 8px 20px rgba(70,90,70,0.20);
-        }
-
-
-        /* ------------------------------
-           RESPONSIVO
-        ------------------------------ */
+        /* =========================
+           MOBILE
+        ========================= */
 
         @media (max-width: 600px) {
 
@@ -498,183 +540,277 @@
                 padding: 0;
             }
 
-
-            .livro {
-
+            .book {
                 min-height: 100vh;
 
                 border-radius: 0;
-
             }
 
-
-            .pagina {
-
+            .page {
                 min-height: 100vh;
 
                 padding:
-                    55px
+                    45px
                     25px
-                    100px;
+                    110px;
             }
 
-
-            .sol {
-
-                width: 85px;
-                height: 85px;
-
-                margin-bottom: 28px;
+            .cover {
+                padding-top: 65px;
             }
 
+            .mini-title {
+                margin-bottom: 45px;
+            }
+
+            .sun {
+                width: 72px;
+                height: 72px;
+
+                margin-bottom: 35px;
+            }
+
+            .cover h1 {
+                font-size: 65px;
+            }
+
+            .cover-text {
+                font-size: 20px;
+            }
 
             p {
-                font-size: 15px;
+                font-size: 16px;
 
                 line-height: 1.8;
             }
 
-
-            .destaque {
-
-                font-size: 19px;
-
-                padding: 15px 18px;
+            .highlight {
+                font-size: 20px;
             }
 
+            h2 {
+                font-size: 40px;
+            }
 
-            .navegacao {
-
-                bottom: 22px;
+            .project-page h2 {
+                font-size: 39px;
             }
 
         }
 
     </style>
+
 </head>
 
 
 <body>
 
 
-<div class="livro">
+<div class="book">
 
 
-    <!-- CAPA -->
+    <!-- =========================
+         CAPA
+    ========================== -->
 
-    <section class="pagina capa ativa">
+    <section class="page active cover">
 
-        <div class="sol"></div>
-
-        <h1>
-            Para mim,<br>
-            <span>Setembro.</span>
-        </h1>
-
-        <p class="subtitulo">
-            Uma pequena carta para lembrar quem eu fui,
-            quem estou me tornando e, principalmente,
-            que eu continue escolhendo a mim.
-        </p>
-
-        <div class="data">
-            Setembro de 2026
+        <div class="mini-title">
+            UMA CARTA PARA MIM
         </div>
 
-        <button class="abrir" onclick="irPara(1)">
+        <div class="sun"></div>
+
+        <h1>
+            Setembro<span>.</span>
+        </h1>
+
+        <div class="year">
+            2026
+        </div>
+
+        <div class="cover-text">
+            para lembrar quem eu era,<br>
+            o que senti<br>
+            e o que eu continuei.
+        </div>
+
+        <button
+            class="open-button"
+            onclick="goTo(1)"
+        >
             abrir minha carta →
         </button>
 
     </section>
 
 
+    <!-- =========================
+         PÁGINA 1
+    ========================== -->
 
-    <!-- PÁGINA 2 -->
+    <section class="page">
 
-    <section class="pagina">
-
-        <div class="numero">
-            01 · começo
+        <div class="section">
+            30 DE SETEMBRO DE 2026
         </div>
 
         <h2>
-            Setembro me lembra de <em>continuar.</em>
+            Antes de outubro começar,
+            eu queria parar um pouco.
         </h2>
 
         <p>
-            Setembro foi, para mim, um mês de força,
-            coragem, paciência e vontade de crescer.
+            Parar para olhar para mim sem pressa.
+            Sem pensar apenas no que faltou,
+            no que poderia ter sido diferente
+            ou no que ainda preciso melhorar.
         </p>
 
         <p>
-            Mas talvez a maior mudança tenha acontecido
-            de uma forma muito menos bonita e muito mais
-            silenciosa:
+            Quero olhar para tudo aquilo que vivi,
+            senti, aprendi e atravessei.
         </p>
 
-        <div class="destaque">
-            eu estou aprendendo a não me odiar
-            quando erro.
-        </div>
+        <div
+            class="sun"
+            style="width:45px;height:45px;margin-top:20px;"
+        ></div>
 
         <p>
-            E isso, para mim, significa muito.
+            Setembro foi um mês de olhar para dentro.
         </p>
 
     </section>
 
 
+    <!-- =========================
+         PÁGINA 2
+    ========================== -->
 
-    <!-- PÁGINA 3 -->
+    <section class="page">
 
-    <section class="pagina">
+        <div class="section">
+            01 · força
+        </div>
 
-        <div class="numero">
+        <h2>
+            Setembro me lembrou de
+            <em>continuar.</em>
+        </h2>
+
+        <p>
+            Foi um mês simbólico para mim.
+            Um mês de força, coragem, paciência
+            e vontade de crescer.
+        </p>
+
+        <p>
+            Mas talvez uma das minhas maiores conquistas
+            tenha sido algo muito mais silencioso.
+        </p>
+
+        <div class="highlight">
+            Aprender a não me odiar
+            quando eu erro.
+        </div>
+
+        <p>
+            Eu ainda erro.
+            Ainda tenho muito para aprender.
+            Mas já não quero transformar cada erro
+            em uma prova de que eu não sou suficiente.
+        </p>
+
+    </section>
+
+
+    <!-- =========================
+         PÁGINA 3
+    ========================== -->
+
+    <section class="page">
+
+        <div class="section">
             02 · pequenas coisas
         </div>
 
         <h2>
-            Eu comecei a perceber
-            <em>as coisas.</em>
+            Comecei a perceber
+            <em>as pequenas coisas.</em>
         </h2>
 
-        <p>
-            Ler porque quero aprender.
-        </p>
+        <div class="list">
 
-        <p>
-            Sentir o cheiro das coisas.
-        </p>
+            <div class="list-item">
 
-        <p>
-            Aceitar o tédio sem achar que preciso
-            imediatamente fazer alguma coisa para
-            deixar de senti-lo.
-        </p>
+                <div class="dot">☀</div>
 
-        <p>
-            Aproveitar minha própria companhia.
-        </p>
+                <p>
+                    Ler porque quero aprender.
+                </p>
 
-        <p>
-            Cuidar de mim aos poucos.
-        </p>
+            </div>
 
-        <div class="destaque">
-            Talvez crescer também seja aprender
-            a ficar presente na própria vida.
+
+            <div class="list-item">
+
+                <div class="dot">☀</div>
+
+                <p>
+                    Sentir o cheiro das coisas.
+                </p>
+
+            </div>
+
+
+            <div class="list-item">
+
+                <div class="dot">☀</div>
+
+                <p>
+                    Sentir tédio sem achar que
+                    existe algo errado comigo.
+                </p>
+
+            </div>
+
+
+            <div class="list-item">
+
+                <div class="dot">☀</div>
+
+                <p>
+                    Gostar cada vez mais da minha
+                    própria companhia.
+                </p>
+
+            </div>
+
+
+            <div class="list-item">
+
+                <div class="dot">☀</div>
+
+                <p>
+                    Cuidar de mim aos poucos.
+                </p>
+
+            </div>
+
         </div>
 
     </section>
 
 
+    <!-- =========================
+         PÁGINA 4
+    ========================== -->
 
-    <!-- PÁGINA 4 -->
+    <section class="page">
 
-    <section class="pagina">
-
-        <div class="numero">
-            03 · coisas que aprendi
+        <div class="section">
+            03 · lembrar
         </div>
 
         <h2>
@@ -682,70 +818,43 @@
             <em>tudo.</em>
         </h2>
 
-        <div class="lista">
+        <p>
+            Não preciso ser legal o tempo todo.
+        </p>
 
-            <div class="item">
-                <span>☀</span>
+        <p>
+            Não preciso acertar sempre.
+        </p>
 
-                <p>
-                    Não preciso ser legal o tempo inteiro.
-                </p>
-            </div>
+        <p>
+            Não preciso provar meu valor
+            o tempo inteiro.
+        </p>
 
+        <p>
+            Não preciso transformar cada dificuldade
+            em uma cobrança contra mim mesma.
+        </p>
 
-            <div class="item">
-                <span>☀</span>
-
-                <p>
-                    Não preciso acertar sempre.
-                </p>
-            </div>
-
-
-            <div class="item">
-                <span>☀</span>
-
-                <p>
-                    Não preciso provar meu valor
-                    o tempo inteiro.
-                </p>
-            </div>
-
-
-            <div class="item">
-                <span>☀</span>
-
-                <p>
-                    Não preciso ser perfeita para
-                    merecer carinho.
-                </p>
-            </div>
-
-
-            <div class="item">
-                <span>☀</span>
-
-                <p>
-                    Posso mudar sem precisar
-                    me odiar por quem fui.
-                </p>
-            </div>
-
+        <div class="highlight">
+            Posso simplesmente ser uma pessoa
+            aprendendo a viver.
         </div>
 
     </section>
 
 
+    <!-- =========================
+         PÁGINA 5
+    ========================== -->
 
-    <!-- PÁGINA 5 -->
+    <section class="page quote-page">
 
-    <section class="pagina frase">
-
-        <div class="numero">
+        <div class="section">
             04 · uma coisa importante
         </div>
 
-        <div class="frase-texto">
+        <div class="big-quote">
 
             Eu não preciso ser
             <span>útil</span>
@@ -758,36 +867,39 @@
     </section>
 
 
+    <!-- =========================
+         PÁGINA 6
+    ========================== -->
 
-    <!-- PÁGINA 6 -->
+    <section class="page">
 
-    <section class="pagina">
-
-        <div class="numero">
+        <div class="section">
             05 · orgulho
         </div>
 
         <h2>
-            Eu não desisti de <em>mim.</em>
+            Eu não desisti de
+            <em>mim.</em>
         </h2>
 
         <p>
-            Talvez essa seja a coisa que eu mais queira
-            lembrar quando voltar aqui.
+            Talvez essa seja a coisa que eu mais
+            quero lembrar quando voltar aqui.
         </p>
 
         <p>
             Houve dias difíceis.
-            Dias em que eu não soube exatamente
+            Dias em que eu não sabia exatamente
             o que fazer.
         </p>
 
         <p>
-            Dias em que eu me questionei,
-            me cobrei e achei que estava ficando para trás.
+            Dias em que me questionei,
+            me cobrei e achei que estava ficando
+            para trás.
         </p>
 
-        <div class="destaque">
+        <div class="highlight">
             Mesmo assim, eu continuei.
         </div>
 
@@ -801,13 +913,92 @@
     </section>
 
 
+    <!-- =========================
+         PÁGINA 7
+         O PROJETO
+    ========================== -->
 
-    <!-- PÁGINA 7 -->
+    <section class="page project-page">
 
-    <section class="pagina">
+        <div class="project-label">
+            PROJETO PESSOAL · SETEMBRO 2026
+        </div>
 
-        <div class="numero">
-            06 · para a Isadora de 2027
+        <div class="project-symbol">
+            ✦
+        </div>
+
+        <h2>
+            Talvez este seja
+            <em>o meu último desafio.</em>
+        </h2>
+
+        <p>
+            Não uma prova.
+            Não um trabalho com prazo.
+            Não uma atividade para entregar.
+        </p>
+
+        <p>
+            <strong>Uma carta.</strong>
+        </p>
+
+        <p>
+            Um pequeno projeto criado para guardar
+            aquilo que normalmente não cabe em um
+            trabalho da faculdade:
+            os sentimentos, as dúvidas, as mudanças,
+            as coisas que aprendi e a pessoa que estou
+            me tornando.
+        </p>
+
+        <div class="project-card">
+
+            <strong>
+                uma carta para mim
+            </strong>
+
+            <span>
+                um projeto para guardar uma versão de mim
+            </span>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         PÁGINA 8
+    ========================== -->
+
+    <section class="page quote-page">
+
+        <div class="section">
+            07 · vulnerabilidade
+        </div>
+
+        <div class="big-quote">
+
+            A vulnerabilidade
+            <span>precisa ser vista.</span>
+
+        </div>
+
+        <p style="max-width:580px; margin-top:35px;">
+            Então eu te convido a olhar para dentro.
+        </p>
+
+    </section>
+
+
+    <!-- =========================
+         PÁGINA 9
+    ========================== -->
+
+    <section class="page">
+
+        <div class="section">
+            08 · para a Isadora de 2027
         </div>
 
         <h2>
@@ -816,18 +1007,19 @@
 
         <p>
             Se você está lendo isso em setembro de 2027,
-            espero que tenha parado por alguns minutos
+            espero que tenha parado alguns minutos
             para lembrar de mim.
         </p>
 
         <p>
-            Não esqueça que a pessoa que escreveu isso
-            ainda estava aprendendo.
+            A pessoa que escreveu isso ainda estava
+            aprendendo.
         </p>
 
         <p>
             Ela não tinha todas as respostas.
-            Não sabia exatamente onde estaria um ano depois.
+            Não sabia exatamente onde estaria
+            um ano depois.
         </p>
 
         <p>
@@ -835,19 +1027,21 @@
             vontade de continuar conhecendo a si mesma.
         </p>
 
-        <div class="destaque">
-            Espero que você ainda esteja do seu lado.
+        <div class="highlight">
+            Espero que você ainda esteja
+            do seu próprio lado.
         </div>
 
     </section>
 
 
+    <!-- =========================
+         PÁGINA FINAL
+    ========================== -->
 
-    <!-- FINAL -->
+    <section class="page final">
 
-    <section class="pagina final">
-
-        <div class="sol"></div>
+        <div class="sun"></div>
 
         <h2>
             Com carinho,<br>
@@ -858,39 +1052,47 @@
             Setembro de 2026
         </p>
 
-        <div class="assinatura">
+        <div class="signature">
             Isadora ♡
         </div>
 
-        <div class="pequeno">
+        <div class="small">
             voltar aqui em setembro de 2027
+        </div>
+
+        <div class="small">
+            Projeto pessoal · ADS
         </div>
 
     </section>
 
 
+    <!-- =========================
+         NAVEGAÇÃO
+    ========================== -->
 
-    <!-- NAVEGAÇÃO -->
-
-    <div class="navegacao">
+    <div class="navigation">
 
         <button
-            class="btn"
-            id="voltar"
-            onclick="paginaAnterior()">
+            class="nav-button"
+            id="previous"
+            onclick="previousPage()"
+        >
             ←
         </button>
 
         <div
-            class="indicador"
-            id="indicador">
-            1 / 8
+            class="counter"
+            id="counter"
+        >
+            1 / 11
         </div>
 
         <button
-            class="btn"
-            id="avancar"
-            onclick="proximaPagina()">
+            class="nav-button"
+            id="next"
+            onclick="nextPage()"
+        >
             →
         </button>
 
@@ -900,102 +1102,148 @@
 </div>
 
 
-
 <script>
 
-    const paginas =
-        document.querySelectorAll(".pagina");
+    const pages =
+        document.querySelectorAll(".page");
 
-    let atual = 0;
+    let currentPage = 0;
 
 
-    function mostrarPagina(numero) {
+    function showPage(number) {
 
-        paginas.forEach((pagina, indice) => {
+        pages.forEach(function(page, index) {
 
-            pagina.classList.toggle(
-                "ativa",
-                indice === numero
+            page.classList.toggle(
+                "active",
+                index === number
             );
 
         });
 
 
-        atual = numero;
+        currentPage = number;
 
 
-        document.getElementById("indicador")
-            .textContent =
-            `${atual + 1} / ${paginas.length}`;
+        document.getElementById("counter").textContent =
+            (currentPage + 1) + " / " + pages.length;
 
 
-        document.getElementById("voltar")
-            .disabled =
-            atual === 0;
+        document.getElementById("previous").disabled =
+            currentPage === 0;
 
 
-        document.getElementById("avancar")
-            .disabled =
-            atual === paginas.length - 1;
+        document.getElementById("next").disabled =
+            currentPage === pages.length - 1;
 
     }
 
 
-    function proximaPagina() {
+    function nextPage() {
 
-        if (atual < paginas.length - 1) {
+        if (currentPage < pages.length - 1) {
 
-            mostrarPagina(atual + 1);
+            showPage(currentPage + 1);
 
         }
 
     }
 
 
-    function paginaAnterior() {
+    function previousPage() {
 
-        if (atual > 0) {
+        if (currentPage > 0) {
 
-            mostrarPagina(atual - 1);
+            showPage(currentPage - 1);
 
         }
 
     }
 
 
-    function irPara(numero) {
+    function goTo(number) {
 
-        mostrarPagina(numero);
+        showPage(number);
 
     }
 
 
-    // Navegação pelo teclado
+    /* =========================
+       TECLADO
+    ========================== */
 
     document.addEventListener(
         "keydown",
         function(event) {
 
             if (event.key === "ArrowRight") {
-
-                proximaPagina();
-
+                nextPage();
             }
 
-
             if (event.key === "ArrowLeft") {
-
-                paginaAnterior();
-
+                previousPage();
             }
 
         }
     );
 
 
-    // Estado inicial
+    /* =========================
+       DESLIZAR NO CELULAR
+    ========================== */
 
-    mostrarPagina(0);
+    let touchStartX = 0;
+
+    let touchEndX = 0;
+
+
+    document.addEventListener(
+        "touchstart",
+        function(event) {
+
+            touchStartX =
+                event.changedTouches[0].screenX;
+
+        },
+        { passive: true }
+    );
+
+
+    document.addEventListener(
+        "touchend",
+        function(event) {
+
+            touchEndX =
+                event.changedTouches[0].screenX;
+
+            const distance =
+                touchEndX - touchStartX;
+
+
+            if (Math.abs(distance) > 60) {
+
+                if (distance < 0) {
+
+                    nextPage();
+
+                } else {
+
+                    previousPage();
+
+                }
+
+            }
+
+        },
+        { passive: true }
+    );
+
+
+    /* =========================
+       INÍCIO
+    ========================== */
+
+    showPage(0);
 
 </script>
 
