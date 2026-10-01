@@ -4,616 +4,1001 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Setembro — Uma carta para mim</title>
+    <title>Para mim — Setembro de 2026 💛</title>
 
-    <meta
-        name="description"
-        content="Uma carta para mim mesma, escrita em setembro de 2026."
-    >
+    <style>
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Playfair+Display:ital,wght@0,400;0,500;1,400&display=swap');
 
-    <link
-        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=DM+Sans:wght@300;400;500;600&display=swap"
-        rel="stylesheet"
-    >
+        :root {
+            --amarelo: #F6C945;
+            --amarelo-claro: #FFF4C2;
+            --amarelo-suave: #FFF9E5;
 
-    <link rel="stylesheet" href="style.css">
+            --verde: #65785D;
+            --verde-claro: #DCE5D5;
+
+            --azul: #6F8990;
+            --creme: #FCFAF2;
+
+            --texto: #35352F;
+            --texto-suave: #77776E;
+
+            --sombra: rgba(70, 70, 50, 0.12);
+        }
+
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+
+        body {
+            min-height: 100vh;
+
+            background:
+                radial-gradient(
+                    circle at 20% 10%,
+                    #FFF4C2 0%,
+                    transparent 35%
+                ),
+                radial-gradient(
+                    circle at 90% 80%,
+                    #DCE5D5 0%,
+                    transparent 35%
+                ),
+                var(--creme);
+
+            color: var(--texto);
+
+            font-family: "DM Sans", sans-serif;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            padding: 20px;
+        }
+
+
+        .livro {
+            width: 100%;
+            max-width: 850px;
+            min-height: 650px;
+
+            position: relative;
+
+            background: rgba(255,255,255,0.72);
+
+            border-radius: 28px;
+
+            box-shadow:
+                0 25px 70px var(--sombra);
+
+            overflow: hidden;
+
+            backdrop-filter: blur(12px);
+        }
+
+
+        /* ------------------------------
+           PÁGINAS
+        ------------------------------ */
+
+        .pagina {
+            display: none;
+
+            min-height: 650px;
+
+            padding: 60px 55px;
+
+            animation:
+                aparecer 0.5s ease;
+        }
+
+
+        .pagina.ativa {
+            display: flex;
+            flex-direction: column;
+        }
+
+
+        @keyframes aparecer {
+
+            from {
+                opacity: 0;
+                transform: translateX(15px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+
+        }
+
+
+        /* ------------------------------
+           CAPA
+        ------------------------------ */
+
+        .capa {
+            justify-content: center;
+            align-items: center;
+
+            text-align: center;
+
+            background:
+                radial-gradient(
+                    circle at 50% 25%,
+                    rgba(246,201,69,0.45),
+                    transparent 35%
+                );
+        }
+
+
+        .sol {
+            width: 105px;
+            height: 105px;
+
+            background: var(--amarelo);
+
+            border-radius: 50%;
+
+            margin-bottom: 35px;
+
+            box-shadow:
+                0 0 0 15px rgba(246,201,69,0.10),
+                0 0 0 30px rgba(246,201,69,0.05);
+        }
+
+
+        .capa h1 {
+            font-family: "Playfair Display", serif;
+
+            font-size: clamp(38px, 7vw, 65px);
+
+            font-weight: 400;
+
+            line-height: 1.05;
+
+            margin-bottom: 18px;
+        }
+
+
+        .capa h1 span {
+            color: var(--amarelo);
+        }
+
+
+        .subtitulo {
+            color: var(--texto-suave);
+
+            font-size: 16px;
+
+            max-width: 430px;
+
+            line-height: 1.7;
+        }
+
+
+        .data {
+            margin-top: 30px;
+
+            color: var(--verde);
+
+            font-size: 13px;
+
+            letter-spacing: 2px;
+
+            text-transform: uppercase;
+        }
+
+
+        /* ------------------------------
+           CONTEÚDO
+        ------------------------------ */
+
+        .numero {
+            color: var(--amarelo);
+
+            font-size: 13px;
+
+            letter-spacing: 3px;
+
+            text-transform: uppercase;
+
+            margin-bottom: 18px;
+        }
+
+
+        h2 {
+            font-family: "Playfair Display", serif;
+
+            font-size: clamp(32px, 6vw, 48px);
+
+            font-weight: 400;
+
+            line-height: 1.15;
+
+            margin-bottom: 30px;
+        }
+
+
+        h2 em {
+            color: var(--verde);
+
+            font-weight: 400;
+        }
+
+
+        p {
+            font-size: 16px;
+
+            line-height: 1.9;
+
+            color: #55554E;
+
+            margin-bottom: 20px;
+        }
+
+
+        .destaque {
+            border-left: 3px solid var(--amarelo);
+
+            padding: 18px 22px;
+
+            margin: 15px 0 25px;
+
+            background: var(--amarelo-suave);
+
+            border-radius: 0 15px 15px 0;
+
+            font-family: "Playfair Display", serif;
+
+            font-size: 21px;
+
+            line-height: 1.6;
+        }
+
+
+        /* ------------------------------
+           LISTA
+        ------------------------------ */
+
+        .lista {
+            display: grid;
+
+            gap: 14px;
+
+            margin-top: 10px;
+        }
+
+
+        .item {
+            display: flex;
+
+            gap: 15px;
+
+            align-items: flex-start;
+
+            padding: 17px;
+
+            border-radius: 16px;
+
+            background: rgba(255,255,255,0.75);
+        }
+
+
+        .item span {
+            width: 30px;
+            height: 30px;
+
+            flex-shrink: 0;
+
+            border-radius: 50%;
+
+            background: var(--amarelo-claro);
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+        }
+
+
+        .item p {
+            margin: 0;
+
+            font-size: 15px;
+
+            line-height: 1.6;
+        }
+
+
+        /* ------------------------------
+           FRASE
+        ------------------------------ */
+
+        .frase {
+            margin: auto 0;
+
+            text-align: center;
+        }
+
+
+        .frase-texto {
+            font-family: "Playfair Display", serif;
+
+            font-size: clamp(30px, 6vw, 50px);
+
+            line-height: 1.3;
+
+            font-style: italic;
+        }
+
+
+        .frase-texto span {
+            color: var(--amarelo);
+        }
+
+
+        /* ------------------------------
+           FINAL
+        ------------------------------ */
+
+        .final {
+            justify-content: center;
+
+            text-align: center;
+        }
+
+
+        .assinatura {
+            margin-top: 35px;
+
+            font-family: "Playfair Display", serif;
+
+            font-size: 26px;
+
+            font-style: italic;
+
+            color: var(--verde);
+        }
+
+
+        .pequeno {
+            color: var(--texto-suave);
+
+            font-size: 13px;
+
+            margin-top: 10px;
+        }
+
+
+        /* ------------------------------
+           NAVEGAÇÃO
+        ------------------------------ */
+
+        .navegacao {
+
+            position: absolute;
+
+            bottom: 25px;
+
+            left: 0;
+
+            right: 0;
+
+            display: flex;
+
+            justify-content: center;
+
+            align-items: center;
+
+            gap: 18px;
+
+            z-index: 20;
+        }
+
+
+        button {
+            border: none;
+
+            cursor: pointer;
+
+            font-family: "DM Sans", sans-serif;
+        }
+
+
+        .btn {
+
+            width: 48px;
+            height: 48px;
+
+            border-radius: 50%;
+
+            background: var(--amarelo);
+
+            color: #4C421E;
+
+            font-size: 18px;
+
+            transition: 0.2s;
+        }
+
+
+        .btn:hover {
+            transform: scale(1.08);
+        }
+
+
+        .btn:disabled {
+
+            opacity: 0.25;
+
+            cursor: default;
+
+            transform: none;
+        }
+
+
+        .indicador {
+
+            font-size: 13px;
+
+            color: var(--texto-suave);
+
+            min-width: 55px;
+
+            text-align: center;
+        }
+
+
+        /* ------------------------------
+           BOTÃO ABRIR
+        ------------------------------ */
+
+        .abrir {
+
+            margin-top: 35px;
+
+            padding: 15px 28px;
+
+            border-radius: 100px;
+
+            background: var(--verde);
+
+            color: white;
+
+            font-size: 14px;
+
+            transition: 0.25s;
+        }
+
+
+        .abrir:hover {
+            transform: translateY(-2px);
+
+            box-shadow:
+                0 8px 20px rgba(70,90,70,0.20);
+        }
+
+
+        /* ------------------------------
+           RESPONSIVO
+        ------------------------------ */
+
+        @media (max-width: 600px) {
+
+            body {
+                padding: 0;
+            }
+
+
+            .livro {
+
+                min-height: 100vh;
+
+                border-radius: 0;
+
+            }
+
+
+            .pagina {
+
+                min-height: 100vh;
+
+                padding:
+                    55px
+                    25px
+                    100px;
+            }
+
+
+            .sol {
+
+                width: 85px;
+                height: 85px;
+
+                margin-bottom: 28px;
+            }
+
+
+            p {
+                font-size: 15px;
+
+                line-height: 1.8;
+            }
+
+
+            .destaque {
+
+                font-size: 19px;
+
+                padding: 15px 18px;
+            }
+
+
+            .navegacao {
+
+                bottom: 22px;
+            }
+
+        }
+
+    </style>
 </head>
+
 
 <body>
 
-    <!-- DECORAÇÃO -->
-    <div class="sun-glow"></div>
-    <div class="grain"></div>
 
-    <main class="book">
+<div class="livro">
 
-        <!-- ========================= -->
-        <!-- CAPA -->
-        <!-- ========================= -->
 
-        <section class="page cover active" data-page="0">
+    <!-- CAPA -->
 
-            <div class="cover-content">
+    <section class="pagina capa ativa">
 
-                <span class="small-label">UMA CARTA PARA MIM</span>
+        <div class="sol"></div>
 
-                <h1>
-                    Setembro
-                </h1>
+        <h1>
+            Para mim,<br>
+            <span>Setembro.</span>
+        </h1>
 
-                <div class="sun-line">
-                    <span></span>
-                    ☀
-                    <span></span>
-                </div>
+        <p class="subtitulo">
+            Uma pequena carta para lembrar quem eu fui,
+            quem estou me tornando e, principalmente,
+            que eu continue escolhendo a mim.
+        </p>
 
-                <p class="cover-year">2026</p>
+        <div class="data">
+            Setembro de 2026
+        </div>
 
-                <p class="cover-description">
-                    para lembrar quem eu era,
-                    <br>
-                    o que senti
-                    <br>
-                    e que eu continuei.
+        <button class="abrir" onclick="irPara(1)">
+            abrir minha carta →
+        </button>
+
+    </section>
+
+
+
+    <!-- PÁGINA 2 -->
+
+    <section class="pagina">
+
+        <div class="numero">
+            01 · começo
+        </div>
+
+        <h2>
+            Setembro me lembra de <em>continuar.</em>
+        </h2>
+
+        <p>
+            Setembro foi, para mim, um mês de força,
+            coragem, paciência e vontade de crescer.
+        </p>
+
+        <p>
+            Mas talvez a maior mudança tenha acontecido
+            de uma forma muito menos bonita e muito mais
+            silenciosa:
+        </p>
+
+        <div class="destaque">
+            eu estou aprendendo a não me odiar
+            quando erro.
+        </div>
+
+        <p>
+            E isso, para mim, significa muito.
+        </p>
+
+    </section>
+
+
+
+    <!-- PÁGINA 3 -->
+
+    <section class="pagina">
+
+        <div class="numero">
+            02 · pequenas coisas
+        </div>
+
+        <h2>
+            Eu comecei a perceber
+            <em>as coisas.</em>
+        </h2>
+
+        <p>
+            Ler porque quero aprender.
+        </p>
+
+        <p>
+            Sentir o cheiro das coisas.
+        </p>
+
+        <p>
+            Aceitar o tédio sem achar que preciso
+            imediatamente fazer alguma coisa para
+            deixar de senti-lo.
+        </p>
+
+        <p>
+            Aproveitar minha própria companhia.
+        </p>
+
+        <p>
+            Cuidar de mim aos poucos.
+        </p>
+
+        <div class="destaque">
+            Talvez crescer também seja aprender
+            a ficar presente na própria vida.
+        </div>
+
+    </section>
+
+
+
+    <!-- PÁGINA 4 -->
+
+    <section class="pagina">
+
+        <div class="numero">
+            03 · coisas que aprendi
+        </div>
+
+        <h2>
+            Eu não preciso ser
+            <em>tudo.</em>
+        </h2>
+
+        <div class="lista">
+
+            <div class="item">
+                <span>☀</span>
+
+                <p>
+                    Não preciso ser legal o tempo inteiro.
                 </p>
-
-                <button class="open-button" onclick="nextPage()">
-                    abrir minha carta
-                    <span>→</span>
-                </button>
-
             </div>
 
-            <div class="cover-bottom">
-                <span>30.09.2026</span>
-                <span>01</span>
+
+            <div class="item">
+                <span>☀</span>
+
+                <p>
+                    Não preciso acertar sempre.
+                </p>
             </div>
 
-        </section>
 
-
-        <!-- ========================= -->
-        <!-- PÁGINA 2 -->
-        <!-- ========================= -->
-
-        <section class="page intro" data-page="1">
-
-            <div class="page-number">02</div>
-
-            <div class="page-content">
-
-                <span class="eyebrow">30 DE SETEMBRO DE 2026</span>
-
-                <h2>
-                    Antes de outubro começar,
-                    eu queria parar um pouco.
-                </h2>
+            <div class="item">
+                <span>☀</span>
 
                 <p>
-                    Parar para olhar para mim sem pressa.
-                    Sem pensar apenas no que faltou,
-                    no que poderia ter sido diferente
-                    ou no que ainda preciso melhorar.
+                    Não preciso provar meu valor
+                    o tempo inteiro.
                 </p>
-
-                <p>
-                    Quero olhar para tudo aquilo que vivi,
-                    senti, aprendi e sobrevivi.
-                </p>
-
-                <div class="highlight">
-                    <span>☀</span>
-                    <p>
-                        Setembro foi um mês de olhar
-                        para dentro.
-                    </p>
-                </div>
-
             </div>
 
-        </section>
 
-
-        <!-- ========================= -->
-        <!-- PÁGINA 3 -->
-        <!-- ========================= -->
-
-        <section class="page dark-page" data-page="2">
-
-            <div class="page-number">03</div>
-
-            <div class="page-content centered">
-
-                <span class="eyebrow light">
-                    SETEMBRO PARA MIM
-                </span>
-
-                <h2>
-                    força.<br>
-                    coragem.<br>
-                    paciência.
-                </h2>
-
-                <div class="divider"></div>
+            <div class="item">
+                <span>☀</span>
 
                 <p>
-                    vontade de crescer.
-                    <br>
-                    vontade de aprender.
-                    <br>
-                    vontade de me conhecer.
+                    Não preciso ser perfeita para
+                    merecer carinho.
                 </p>
-
             </div>
 
-        </section>
 
-
-        <!-- ========================= -->
-        <!-- PÁGINA 4 -->
-        <!-- ========================= -->
-
-        <section class="page" data-page="3">
-
-            <div class="page-number">04</div>
-
-            <div class="page-content">
-
-                <span class="eyebrow">
-                    O QUE EU APRENDI
-                </span>
-
-                <h2>
-                    Minha maior conquista
-                    talvez não seja algo
-                    que alguém consiga ver.
-                </h2>
+            <div class="item">
+                <span>☀</span>
 
                 <p>
-                    Tenho aprendido a não me odiar por errar.
+                    Posso mudar sem precisar
+                    me odiar por quem fui.
                 </p>
-
-                <p>
-                    A entender que cometer um erro não
-                    apaga tudo aquilo que já fiz.
-                </p>
-
-                <p>
-                    Ainda tenho muito para aprender.
-                    E tudo bem.
-                </p>
-
-                <div class="quote">
-                    “Eu posso errar sem transformar
-                    o erro em quem eu sou.”
-                </div>
-
             </div>
-
-        </section>
-
-
-        <!-- ========================= -->
-        <!-- PÁGINA 5 -->
-        <!-- ========================= -->
-
-        <section class="page soft-page" data-page="4">
-
-            <div class="page-number">05</div>
-
-            <div class="page-content">
-
-                <span class="eyebrow">
-                    CONTINUAR APRENDENDO
-                </span>
-
-                <h2>
-                    Eu ainda não sei tudo.
-                </h2>
-
-                <p>
-                    E talvez essa seja uma das coisas
-                    que eu mais precise aceitar.
-                </p>
-
-                <div class="learning-list">
-
-                    <div>
-                        <span>01</span>
-                        <p>terminar minha faculdade</p>
-                    </div>
-
-                    <div>
-                        <span>02</span>
-                        <p>ler para aprender</p>
-                    </div>
-
-                    <div>
-                        <span>03</span>
-                        <p>ser humilde diante do que não sei</p>
-                    </div>
-
-                    <div>
-                        <span>04</span>
-                        <p>continuar tentando</p>
-                    </div>
-
-                </div>
-
-            </div>
-
-        </section>
-
-
-        <!-- ========================= -->
-        <!-- PÁGINA 6 -->
-        <!-- ========================= -->
-
-        <section class="page nature-page" data-page="5">
-
-            <div class="page-number">06</div>
-
-            <div class="page-content">
-
-                <span class="eyebrow">
-                    AS COISAS PEQUENAS
-                </span>
-
-                <h2>
-                    Tenho aprendido a
-                    gostar do simples.
-                </h2>
-
-                <div class="simple-things">
-
-                    <span>sentir o cheiro das coisas</span>
-
-                    <span>sentir tédio</span>
-
-                    <span>ficar comigo</span>
-
-                    <span>ler</span>
-
-                    <span>observar</span>
-
-                    <span>descansar</span>
-
-                    <span>cuidar de mim</span>
-
-                </div>
-
-                <p class="small-text">
-                    Nem tudo precisa ser grandioso
-                    para ter significado.
-                </p>
-
-            </div>
-
-        </section>
-
-
-        <!-- ========================= -->
-        <!-- PÁGINA 7 -->
-        <!-- ========================= -->
-
-        <section class="page" data-page="6">
-
-            <div class="page-number">07</div>
-
-            <div class="page-content">
-
-                <span class="eyebrow">
-                    MINHA COMPANHIA
-                </span>
-
-                <h2>
-                    Eu gosto muito
-                    da minha própria companhia.
-                </h2>
-
-                <p>
-                    E isso é algo que quero guardar.
-                </p>
-
-                <p>
-                    Tenho aprendido que estar comigo
-                    não precisa significar estar sozinha
-                    de uma maneira triste.
-                </p>
-
-                <p>
-                    Posso sair comigo.
-                    Posso ficar em casa.
-                    Posso caminhar.
-                    Posso observar o mundo.
-                    Posso simplesmente existir.
-                </p>
-
-                <div class="tiny-note">
-                    <span>☼</span>
-                    aos poucos.
-                </div>
-
-            </div>
-
-        </section>
-
-
-        <!-- ========================= -->
-        <!-- PÁGINA 8 -->
-        <!-- ========================= -->
-
-        <section class="page dark-page" data-page="7">
-
-            <div class="page-number">08</div>
-
-            <div class="page-content centered">
-
-                <span class="eyebrow light">
-                    TALVEZ O MAIS IMPORTANTE
-                </span>
-
-                <div class="big-statement">
-
-                    <span>eu</span>
-
-                    <strong>
-                        não desisti
-                    </strong>
-
-                    <span>de mim.</span>
-
-                </div>
-
-                <div class="divider"></div>
-
-                <p>
-                    E eu quero reconhecer isso.
-                </p>
-
-            </div>
-
-        </section>
-
-
-        <!-- ========================= -->
-        <!-- PÁGINA 9 -->
-        <!-- ========================= -->
-
-        <section class="page" data-page="8">
-
-            <div class="page-number">09</div>
-
-            <div class="page-content">
-
-                <span class="eyebrow">
-                    CUIDAR DE MIM
-                </span>
-
-                <h2>
-                    Não tenho feito tudo
-                    perfeitamente.
-                </h2>
-
-                <p>
-                    Mas tenho cuidado de mim
-                    aos poucos.
-                </p>
-
-                <p>
-                    Tenho tentado entender meus limites,
-                    meus sentimentos, meus erros
-                    e as coisas que ainda preciso mudar.
-                </p>
-
-                <p>
-                    Quero continuar fazendo isso
-                    sem transformar crescimento
-                    em uma cobrança impossível.
-                </p>
-
-                <div class="gold-line"></div>
-
-                <p class="emphasis">
-                    Crescer também pode ser gentil.
-                </p>
-
-            </div>
-
-        </section>
-
-
-        <!-- ========================= -->
-        <!-- PÁGINA 10 -->
-        <!-- ========================= -->
-
-        <section class="page soft-page" data-page="9">
-
-            <div class="page-number">10</div>
-
-            <div class="page-content">
-
-                <span class="eyebrow">
-                    SOBRE SER HUMANA
-                </span>
-
-                <h2>
-                    Eu não preciso
-                    acertar sempre.
-                </h2>
-
-                <p>
-                    Posso ter dias bons e ruins.
-                </p>
-
-                <p>
-                    Posso mudar de ideia.
-                </p>
-
-                <p>
-                    Posso não saber o que fazer.
-                </p>
-
-                <p>
-                    Posso não ser legal o tempo inteiro.
-                </p>
-
-                <p>
-                    Posso simplesmente ser eu,
-                    enquanto continuo aprendendo.
-                </p>
-
-            </div>
-
-        </section>
-
-
-        <!-- ========================= -->
-        <!-- PÁGINA 11 -->
-        <!-- ========================= -->
-
-        <section class="page letter-page" data-page="10">
-
-            <div class="page-number">11</div>
-
-            <div class="page-content letter">
-
-                <span class="eyebrow">
-                    UMA CARTA PARA MIM
-                </span>
-
-                <h2>
-                    Querida eu,
-                </h2>
-
-                <p>
-                    Setembro termina e eu queria
-                    que você soubesse que estou
-                    orgulhosa de você.
-                </p>
-
-                <p>
-                    Não porque você fez tudo certo.
-                    Mas porque continuou tentando.
-                </p>
-
-                <p>
-                    Você está terminando uma faculdade,
-                    aprendendo coisas novas, lendo,
-                    tentando entender quem é
-                    e descobrindo quem quer ser.
-                </p>
-
-                <p>
-                    Ainda existem muitas coisas
-                    que você não sabe.
-                    E não há problema nisso.
-                </p>
-
-                <p>
-                    Você não precisa ter todas
-                    as respostas agora.
-                </p>
-
-                <p>
-                    Continue aprendendo.
-                    Continue sentindo.
-                    Continue vivendo.
-                </p>
-
-                <p>
-                    E, por favor, continue escolhendo
-                    ficar ao seu lado.
-                </p>
-
-                <p class="signature">
-                    Com carinho,<br>
-                    você.
-                </p>
-
-            </div>
-
-        </section>
-
-
-        <!-- ========================= -->
-        <!-- PÁGINA 12 -->
-        <!-- ========================= -->
-
-        <section class="page final-page" data-page="11">
-
-            <div class="final-content">
-
-                <span class="eyebrow">
-                    30 · 09 · 2026
-                </span>
-
-                <h2>
-                    Setembro,
-                    <br>
-                    obrigada.
-                </h2>
-
-                <div class="sun-symbol">
-                    ☀
-                </div>
-
-                <p>
-                    Eu ainda estou aqui.
-                </p>
-
-                <p>
-                    E isso importa.
-                </p>
-
-                <div class="next-year">
-                    <span>até</span>
-                    <strong>setembro de 2027</strong>
-                </div>
-
-            </div>
-
-        </section>
-
-
-        <!-- ========================= -->
-        <!-- CONTROLES -->
-        <!-- ========================= -->
-
-        <div class="navigation">
-
-            <button
-                id="prevButton"
-                onclick="previousPage()"
-                aria-label="Página anterior"
-            >
-                ←
-            </button>
-
-            <div class="progress">
-                <span id="currentPage">01</span>
-                <span class="progress-line">
-                    <span id="progressFill"></span>
-                </span>
-                <span>12</span>
-            </div>
-
-            <button
-                id="nextButton"
-                onclick="nextPage()"
-                aria-label="Próxima página"
-            >
-                →
-            </button>
 
         </div>
 
-    </main>
+    </section>
 
-    <script src="script.js"></script>
+
+
+    <!-- PÁGINA 5 -->
+
+    <section class="pagina frase">
+
+        <div class="numero">
+            04 · uma coisa importante
+        </div>
+
+        <div class="frase-texto">
+
+            Eu não preciso ser
+            <span>útil</span>
+            o tempo inteiro
+            para ser
+            <span>amada.</span>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- PÁGINA 6 -->
+
+    <section class="pagina">
+
+        <div class="numero">
+            05 · orgulho
+        </div>
+
+        <h2>
+            Eu não desisti de <em>mim.</em>
+        </h2>
+
+        <p>
+            Talvez essa seja a coisa que eu mais queira
+            lembrar quando voltar aqui.
+        </p>
+
+        <p>
+            Houve dias difíceis.
+            Dias em que eu não soube exatamente
+            o que fazer.
+        </p>
+
+        <p>
+            Dias em que eu me questionei,
+            me cobrei e achei que estava ficando para trás.
+        </p>
+
+        <div class="destaque">
+            Mesmo assim, eu continuei.
+        </div>
+
+        <p>
+            Continuei estudando.
+            Continuei aprendendo.
+            Continuei tentando.
+            Continuei vivendo.
+        </p>
+
+    </section>
+
+
+
+    <!-- PÁGINA 7 -->
+
+    <section class="pagina">
+
+        <div class="numero">
+            06 · para a Isadora de 2027
+        </div>
+
+        <h2>
+            Oi, você.
+        </h2>
+
+        <p>
+            Se você está lendo isso em setembro de 2027,
+            espero que tenha parado por alguns minutos
+            para lembrar de mim.
+        </p>
+
+        <p>
+            Não esqueça que a pessoa que escreveu isso
+            ainda estava aprendendo.
+        </p>
+
+        <p>
+            Ela não tinha todas as respostas.
+            Não sabia exatamente onde estaria um ano depois.
+        </p>
+
+        <p>
+            Mas tinha uma coisa:
+            vontade de continuar conhecendo a si mesma.
+        </p>
+
+        <div class="destaque">
+            Espero que você ainda esteja do seu lado.
+        </div>
+
+    </section>
+
+
+
+    <!-- FINAL -->
+
+    <section class="pagina final">
+
+        <div class="sol"></div>
+
+        <h2>
+            Com carinho,<br>
+            <em>eu.</em>
+        </h2>
+
+        <p>
+            Setembro de 2026
+        </p>
+
+        <div class="assinatura">
+            Isadora ♡
+        </div>
+
+        <div class="pequeno">
+            voltar aqui em setembro de 2027
+        </div>
+
+    </section>
+
+
+
+    <!-- NAVEGAÇÃO -->
+
+    <div class="navegacao">
+
+        <button
+            class="btn"
+            id="voltar"
+            onclick="paginaAnterior()">
+            ←
+        </button>
+
+        <div
+            class="indicador"
+            id="indicador">
+            1 / 8
+        </div>
+
+        <button
+            class="btn"
+            id="avancar"
+            onclick="proximaPagina()">
+            →
+        </button>
+
+    </div>
+
+
+</div>
+
+
+
+<script>
+
+    const paginas =
+        document.querySelectorAll(".pagina");
+
+    let atual = 0;
+
+
+    function mostrarPagina(numero) {
+
+        paginas.forEach((pagina, indice) => {
+
+            pagina.classList.toggle(
+                "ativa",
+                indice === numero
+            );
+
+        });
+
+
+        atual = numero;
+
+
+        document.getElementById("indicador")
+            .textContent =
+            `${atual + 1} / ${paginas.length}`;
+
+
+        document.getElementById("voltar")
+            .disabled =
+            atual === 0;
+
+
+        document.getElementById("avancar")
+            .disabled =
+            atual === paginas.length - 1;
+
+    }
+
+
+    function proximaPagina() {
+
+        if (atual < paginas.length - 1) {
+
+            mostrarPagina(atual + 1);
+
+        }
+
+    }
+
+
+    function paginaAnterior() {
+
+        if (atual > 0) {
+
+            mostrarPagina(atual - 1);
+
+        }
+
+    }
+
+
+    function irPara(numero) {
+
+        mostrarPagina(numero);
+
+    }
+
+
+    // Navegação pelo teclado
+
+    document.addEventListener(
+        "keydown",
+        function(event) {
+
+            if (event.key === "ArrowRight") {
+
+                proximaPagina();
+
+            }
+
+
+            if (event.key === "ArrowLeft") {
+
+                paginaAnterior();
+
+            }
+
+        }
+    );
+
+
+    // Estado inicial
+
+    mostrarPagina(0);
+
+</script>
+
 
 </body>
 </html>
