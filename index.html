@@ -1,0 +1,1337 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0">
+
+  <meta name="theme-color" content="#FFD21C">
+
+  <title>Uma carta para mim — Setembro 2026</title>
+
+  <style>
+
+    /* =====================================================
+       CONFIGURAÇÕES GERAIS
+    ===================================================== */
+
+    :root {
+      --amarelo: #FFD21C;
+      --amarelo-claro: #FFF4B8;
+      --amarelo-suave: #FFF9DD;
+      --preto: #111111;
+      --cinza: #6d6d6d;
+      --branco: #ffffff;
+      --linha: #e9e9e9;
+
+      --serif:
+        Georgia,
+        "Times New Roman",
+        serif;
+
+      --sans:
+        -apple-system,
+        BlinkMacSystemFont,
+        "Helvetica Neue",
+        Arial,
+        sans-serif;
+    }
+
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+
+    body {
+      background: var(--branco);
+      color: var(--preto);
+      font-family: var(--serif);
+      overflow-x: hidden;
+    }
+
+
+    button {
+      font-family: var(--sans);
+    }
+
+
+    /* =====================================================
+       CAPA
+    ===================================================== */
+
+    .capa {
+      min-height: 100vh;
+      padding: 38px 22px 34px;
+
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+
+      background:
+        radial-gradient(
+          circle at 85% 22%,
+          rgba(255, 210, 28, 0.18),
+          transparent 28%
+        ),
+        #fff;
+
+      position: relative;
+      overflow: hidden;
+    }
+
+
+    .capa-topo {
+      font-family: var(--sans);
+      font-size: 13px;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+
+
+    .capa-conteudo {
+      padding-bottom: 40px;
+    }
+
+
+    .capa h1 {
+      font-size: clamp(58px, 18vw, 100px);
+      line-height: 0.86;
+      font-weight: 500;
+      letter-spacing: -0.06em;
+      margin-bottom: 38px;
+    }
+
+
+    .sol {
+      width: 58px;
+      height: 58px;
+      margin-bottom: 38px;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      font-size: 48px;
+
+      animation: flutuar 4s ease-in-out infinite;
+    }
+
+
+    @keyframes flutuar {
+
+      0%,
+      100% {
+        transform: translateY(0);
+      }
+
+      50% {
+        transform: translateY(-6px);
+      }
+    }
+
+
+    .ano {
+      font-family: var(--serif);
+      font-size: 30px;
+      margin-bottom: 40px;
+    }
+
+
+    .subtitulo {
+      font-size: 28px;
+      line-height: 1.25;
+      max-width: 370px;
+      margin-bottom: 32px;
+    }
+
+
+    .abrir {
+      border: 0;
+      background: var(--amarelo);
+
+      padding: 14px 22px;
+      border-radius: 40px;
+
+      font-size: 15px;
+      color: var(--preto);
+
+      cursor: pointer;
+
+      transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease;
+    }
+
+
+    .abrir:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 25px rgba(255, 210, 28, 0.3);
+    }
+
+
+    .abrir:active {
+      transform: scale(0.97);
+    }
+
+
+    .capa-final {
+      font-family: var(--sans);
+      font-size: 11px;
+      color: #888;
+      letter-spacing: 0.05em;
+    }
+
+
+    /* =====================================================
+       LIVRO
+    ===================================================== */
+
+    #livro {
+      display: none;
+      background: var(--branco);
+    }
+
+
+    #livro.aberto {
+      display: block;
+      animation: aparecer 0.8s ease;
+    }
+
+
+    @keyframes aparecer {
+      from {
+        opacity: 0;
+        transform: translateY(15px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+
+    /* =====================================================
+       BARRA DO LIVRO
+    ===================================================== */
+
+    .barra {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+
+      height: 58px;
+
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+
+      padding: 0 20px;
+
+      background: rgba(255,255,255,0.92);
+      backdrop-filter: blur(10px);
+
+      border-bottom: 1px solid var(--linha);
+    }
+
+
+    .barra-titulo {
+      font-family: var(--sans);
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+
+
+    .pagina {
+      font-family: var(--sans);
+      font-size: 11px;
+      color: #888;
+    }
+
+
+    /* =====================================================
+       PÁGINAS
+    ===================================================== */
+
+    .pagina-livro {
+      min-height: calc(100vh - 58px);
+
+      padding:
+        70px
+        22px
+        100px;
+
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+
+      max-width: 760px;
+      margin: auto;
+
+      position: relative;
+    }
+
+
+    .numero {
+      font-family: var(--sans);
+      font-size: 12px;
+      color: #999;
+
+      letter-spacing: 0.1em;
+
+      margin-bottom: 28px;
+    }
+
+
+    .data {
+      font-family: var(--sans);
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-bottom: 34px;
+    }
+
+
+    .pagina-livro h2 {
+      font-size: clamp(34px, 10vw, 58px);
+      line-height: 1.04;
+      letter-spacing: -0.04em;
+      font-weight: 600;
+
+      margin-bottom: 30px;
+    }
+
+
+    .pagina-livro h3 {
+      font-size: 28px;
+      line-height: 1.15;
+      margin-bottom: 24px;
+    }
+
+
+    .pagina-livro p {
+      font-size: 20px;
+      line-height: 1.55;
+
+      margin-bottom: 24px;
+    }
+
+
+    .pequeno {
+      font-family: var(--sans) !important;
+      font-size: 13px !important;
+      line-height: 1.6 !important;
+      color: var(--cinza);
+    }
+
+
+    /* =====================================================
+       DESTAQUES
+    ===================================================== */
+
+    .solzinho {
+      font-size: 35px;
+      margin: 15px 0 35px;
+    }
+
+
+    .frase-grande {
+      font-size: clamp(36px, 10vw, 65px) !important;
+      line-height: 1.02 !important;
+      letter-spacing: -0.04em;
+    }
+
+
+    .amarelo {
+      background:
+        linear-gradient(
+          transparent 60%,
+          var(--amarelo) 60%
+        );
+    }
+
+
+    .bloco-amarelo {
+      background: var(--amarelo-suave);
+      border-left: 5px solid var(--amarelo);
+
+      padding: 25px 22px;
+      margin: 25px 0 30px;
+    }
+
+
+    .bloco-amarelo p {
+      margin-bottom: 0;
+    }
+
+
+    .linha {
+      width: 50px;
+      height: 4px;
+      background: var(--amarelo);
+      margin: 30px 0;
+    }
+
+
+    /* =====================================================
+       PÁGINA DO DESAFIO
+    ===================================================== */
+
+    .projeto {
+      background: var(--preto);
+      color: white;
+
+      padding:
+        70px 22px
+        100px;
+
+      min-height: 100vh;
+
+      max-width: none;
+    }
+
+
+    .projeto-inner {
+      max-width: 760px;
+      margin: auto;
+    }
+
+
+    .projeto .numero,
+    .projeto .data {
+      color: #aaa;
+    }
+
+
+    .projeto h2 {
+      color: white;
+    }
+
+
+    .projeto p {
+      color: #e7e7e7;
+    }
+
+
+    .projeto-destaque {
+      color: var(--amarelo);
+      font-size: clamp(38px, 11vw, 70px);
+      line-height: 0.98;
+      margin: 45px 0;
+      letter-spacing: -0.04em;
+    }
+
+
+    /* =====================================================
+       LISTA DE CONQUISTAS
+    ===================================================== */
+
+    .lista {
+      list-style: none;
+      margin-top: 20px;
+    }
+
+
+    .lista li {
+      font-size: 20px;
+      line-height: 1.45;
+
+      padding: 18px 0;
+
+      border-bottom: 1px solid var(--linha);
+    }
+
+
+    .lista li::before {
+      content: "☀";
+      color: var(--amarelo);
+      margin-right: 12px;
+    }
+
+
+    /* =====================================================
+       CARTA FINAL
+    ===================================================== */
+
+    .final {
+      min-height: 100vh;
+
+      background:
+        radial-gradient(
+          circle at 50% 15%,
+          rgba(255, 210, 28, 0.25),
+          transparent 30%
+        ),
+        #fff;
+
+      text-align: center;
+
+      padding:
+        100px 22px;
+
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+
+
+    .final .solzinho {
+      font-size: 55px;
+    }
+
+
+    .final h2 {
+      max-width: 650px;
+    }
+
+
+    .assinatura {
+      margin-top: 50px;
+
+      font-size: 25px;
+      font-style: italic;
+    }
+
+
+    /* =====================================================
+       NAVEGAÇÃO
+    ===================================================== */
+
+    .navegacao {
+      position: fixed;
+      bottom: 20px;
+      left: 50%;
+
+      transform: translateX(-50%);
+
+      z-index: 30;
+
+      display: flex;
+      align-items: center;
+      gap: 8px;
+
+      padding: 6px;
+
+      background: rgba(255,255,255,0.94);
+      backdrop-filter: blur(10px);
+
+      border: 1px solid #ddd;
+      border-radius: 50px;
+
+      box-shadow: 0 8px 30px rgba(0,0,0,0.08);
+    }
+
+
+    .nav-btn {
+      width: 42px;
+      height: 42px;
+
+      border: 0;
+      border-radius: 50%;
+
+      background: transparent;
+
+      cursor: pointer;
+
+      font-size: 18px;
+    }
+
+
+    .nav-btn:hover {
+      background: #f3f3f3;
+    }
+
+
+    .nav-btn.proximo {
+      background: var(--amarelo);
+    }
+
+
+    /* =====================================================
+       DESKTOP
+    ===================================================== */
+
+    @media (min-width: 700px) {
+
+      .capa {
+        padding:
+          55px
+          70px
+          45px;
+      }
+
+
+      .capa h1 {
+        font-size: 110px;
+      }
+
+
+      .subtitulo {
+        font-size: 32px;
+      }
+
+
+      .pagina-livro {
+        padding:
+          100px
+          50px
+          130px;
+      }
+
+
+      .projeto {
+        padding:
+          100px
+          50px
+          130px;
+      }
+
+    }
+
+  </style>
+</head>
+
+
+<body>
+
+
+  <!-- =====================================================
+       CAPA
+  ====================================================== -->
+
+  <section class="capa" id="capa">
+
+    <div class="capa-topo">
+      Uma carta para mim
+    </div>
+
+
+    <div class="capa-conteudo">
+
+      <h1>
+        Setembro
+      </h1>
+
+
+      <div class="sol">
+        ☀️
+      </div>
+
+
+      <div class="ano">
+        2026
+      </div>
+
+
+      <div class="subtitulo">
+        para lembrar quem eu era,<br>
+        o que senti<br>
+        e que eu continuei.
+      </div>
+
+
+      <button
+        class="abrir"
+        onclick="abrirCarta()">
+        abrir minha carta →
+      </button>
+
+    </div>
+
+
+    <div class="capa-final">
+      30.09.2026
+    </div>
+
+  </section>
+
+
+
+  <!-- =====================================================
+       LIVRO
+  ====================================================== -->
+
+  <main id="livro">
+
+
+    <!-- BARRA -->
+
+    <header class="barra">
+
+      <div class="barra-titulo">
+        Uma carta para mim
+      </div>
+
+      <div
+        class="pagina"
+        id="contador">
+        01 / 08
+      </div>
+
+    </header>
+
+
+
+    <!-- =================================================
+         PÁGINA 01
+    ================================================== -->
+
+    <section class="pagina-livro">
+
+      <div class="numero">
+        01
+      </div>
+
+      <div class="data">
+        30 de setembro de 2026
+      </div>
+
+
+      <h2>
+        Antes de outubro começar,
+        eu queria parar um pouco.
+      </h2>
+
+
+      <p>
+        Parar para olhar para mim sem pressa.
+        Sem pensar apenas no que faltou,
+        no que poderia ter sido diferente
+        ou no que ainda preciso melhorar.
+      </p>
+
+
+      <p>
+        Quero olhar para tudo aquilo que vivi,
+        senti, aprendi e sobrevivi.
+      </p>
+
+
+      <div class="solzinho">
+        ☀️
+      </div>
+
+
+      <p>
+        Setembro foi um mês de olhar para dentro.
+      </p>
+
+    </section>
+
+
+
+    <!-- =================================================
+         PÁGINA 02
+    ================================================== -->
+
+    <section class="pagina-livro">
+
+      <div class="numero">
+        02
+      </div>
+
+
+      <h2>
+        Setembro me ensinou
+        algumas coisas.
+      </h2>
+
+
+      <p>
+        Que eu posso errar sem precisar
+        imediatamente me odiar por isso.
+      </p>
+
+
+      <p>
+        Que aprender não significa saber tudo.
+        Que posso ler, perguntar, tentar de novo
+        e continuar sendo humilde durante o processo.
+      </p>
+
+
+      <p>
+        Que crescer também é perceber
+        que algumas coisas levam tempo.
+      </p>
+
+
+      <div class="bloco-amarelo">
+
+        <p>
+          E talvez uma das coisas mais bonitas
+          que aprendi tenha sido:
+          <strong>
+            eu não preciso estar pronta
+            para continuar.
+          </strong>
+        </p>
+
+      </div>
+
+    </section>
+
+
+
+    <!-- =================================================
+         PÁGINA 03
+    ================================================== -->
+
+    <section class="pagina-livro">
+
+      <div class="numero">
+        03
+      </div>
+
+
+      <h2>
+        Eu também estou
+        aprendendo a viver.
+      </h2>
+
+
+      <p>
+        Estou aprendendo a gostar da minha própria
+        companhia.
+      </p>
+
+
+      <p>
+        A sentir tédio sem achar que existe
+        alguma coisa errada comigo.
+      </p>
+
+
+      <p>
+        A sentir o cheiro das coisas.
+        A prestar atenção nos pequenos momentos.
+        A ficar quieta.
+        A sair.
+        A descansar.
+      </p>
+
+
+      <p>
+        A cuidar de mim aos poucos.
+      </p>
+
+
+      <div class="linha"></div>
+
+
+      <p class="frase-grande">
+        Nem todo momento
+        precisa ser produtivo
+        para ter valor.
+      </p>
+
+    </section>
+
+
+
+    <!-- =================================================
+         PÁGINA 04
+    ================================================== -->
+
+    <section class="pagina-livro">
+
+      <div class="numero">
+        04
+      </div>
+
+
+      <h2>
+        Sobre ser útil.
+      </h2>
+
+
+      <p>
+        Talvez eu tenha passado muito tempo
+        acreditando que precisava ser útil,
+        necessária ou perfeita para merecer
+        carinho.
+      </p>
+
+
+      <p>
+        Mas eu estou tentando deixar isso para trás.
+      </p>
+
+
+      <p class="frase-grande">
+        Eu não preciso ser
+        útil o tempo todo
+        para ser amada.
+      </p>
+
+
+      <p>
+        Posso simplesmente existir.
+      </p>
+
+
+      <p>
+        Posso ser humana.
+        Posso ter dias bons e ruins.
+        Posso não saber.
+        Posso mudar de ideia.
+      </p>
+
+    </section>
+
+
+
+    <!-- =================================================
+         PÁGINA 05 — FACULDADE
+    ================================================== -->
+
+    <section class="pagina-livro">
+
+      <div class="numero">
+        05
+      </div>
+
+
+      <div class="data">
+        um pequeno registro
+      </div>
+
+
+      <h2>
+        E no meio de tudo isso,
+        eu continuei estudando.
+      </h2>
+
+
+      <p>
+        Talvez pareça uma coisa simples,
+        mas não é.
+      </p>
+
+
+      <p>
+        Eu estou chegando ao fim de uma etapa
+        que um dia parecia muito distante:
+        a minha faculdade.
+      </p>
+
+
+      <p>
+        Eu nem sempre me senti capaz.
+        Algumas vezes achei que não sabia nada.
+        Algumas vezes duvidei de mim.
+      </p>
+
+
+      <p>
+        Mesmo assim,
+        continuei.
+      </p>
+
+
+      <div class="bloco-amarelo">
+
+        <p>
+          E continuar também é uma forma
+          de coragem.
+        </p>
+
+      </div>
+
+    </section>
+
+
+
+    <!-- =================================================
+         PÁGINA 06 — PROJETO
+    ================================================== -->
+
+    <section class="projeto">
+
+      <div class="projeto-inner">
+
+        <div class="numero">
+          06
+        </div>
+
+
+        <div class="data">
+          último desafio da faculdade
+        </div>
+
+
+        <h2>
+          Uma carta para mim.
+        </h2>
+
+
+        <p>
+          Entre tantos trabalhos, projetos,
+          provas e entregas, apareceu um desafio
+          que talvez fosse diferente de todos os outros.
+        </p>
+
+
+        <div class="projeto-destaque">
+          Abrir esta carta.
+        </div>
+
+
+        <p>
+          Não para mostrar uma resposta certa.
+          Não para provar alguma coisa.
+          Mas para olhar para dentro.
+        </p>
+
+
+        <p>
+          A vulnerabilidade também precisa ser vista.
+        </p>
+
+
+        <div class="projeto-destaque">
+          Eu te convido
+          a olhar para dentro.
+        </div>
+
+
+        <p>
+          E foi assim que um projeto da faculdade
+          acabou se tornando também um registro
+          de quem eu sou neste momento.
+        </p>
+
+      </div>
+
+    </section>
+
+
+
+    <!-- =================================================
+         PÁGINA 07 — O QUE FICOU
+    ================================================== -->
+
+    <section class="pagina-livro">
+
+      <div class="numero">
+        07
+      </div>
+
+
+      <h2>
+        O que eu quero levar
+        comigo.
+      </h2>
+
+
+      <ul class="lista">
+
+        <li>
+          A coragem de tentar novamente.
+        </li>
+
+        <li>
+          A paciência com os meus próprios processos.
+        </li>
+
+        <li>
+          A vontade de aprender.
+        </li>
+
+        <li>
+          A humildade de admitir quando não sei.
+        </li>
+
+        <li>
+          A capacidade de aproveitar minha própria companhia.
+        </li>
+
+        <li>
+          A liberdade de não ser perfeita.
+        </li>
+
+        <li>
+          O compromisso de não desistir de mim.
+        </li>
+
+      </ul>
+
+    </section>
+
+
+
+    <!-- =================================================
+         PÁGINA 08 — FINAL
+    ================================================== -->
+
+    <section class="final">
+
+      <div class="numero">
+        08
+      </div>
+
+
+      <div class="solzinho">
+        ☀️
+      </div>
+
+
+      <h2>
+        Se você estiver lendo isso
+        em setembro de 2027...
+      </h2>
+
+
+      <p>
+        espero que você tenha continuado.
+      </p>
+
+
+      <p>
+        Espero que tenha aprendido coisas novas,
+        errado algumas vezes,
+        mudado de ideia,
+        conhecido versões diferentes de você
+        e, principalmente,
+        continuado se escolhendo.
+      </p>
+
+
+      <p>
+        Não quero que você leia isso procurando
+        uma versão perfeita da pessoa que deveria
+        ter se tornado.
+      </p>
+
+
+      <p>
+        Só espero que consiga olhar para trás
+        e reconhecer a menina que estava aqui
+        tentando.
+      </p>
+
+
+      <p class="frase-grande">
+        Ela fez o melhor que podia.
+      </p>
+
+
+      <div class="assinatura">
+        Com carinho,<br>
+        você mesma.
+      </div>
+
+    </section>
+
+
+
+    <!-- =================================================
+         NAVEGAÇÃO
+    ================================================== -->
+
+    <nav class="navegacao">
+
+      <button
+        class="nav-btn"
+        onclick="anterior()"
+        aria-label="Página anterior">
+        ←
+      </button>
+
+
+      <button
+        class="nav-btn proximo"
+        onclick="proxima()"
+        aria-label="Próxima página">
+        →
+      </button>
+
+    </nav>
+
+
+  </main>
+
+
+
+  <!-- =====================================================
+       JAVASCRIPT
+  ====================================================== -->
+
+  <script>
+
+    let paginaAtual = 1;
+
+    const totalPaginas = 8;
+
+
+    function abrirCarta() {
+
+      const capa = document.getElementById("capa");
+      const livro = document.getElementById("livro");
+
+      capa.style.display = "none";
+
+      livro.classList.add("aberto");
+
+      paginaAtual = 1;
+
+      atualizarContador();
+
+      window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+      });
+
+    }
+
+
+
+    function obterPaginas() {
+
+      return document.querySelectorAll(
+        ".pagina-livro, .projeto, .final"
+      );
+
+    }
+
+
+
+    function mostrarPagina(numero) {
+
+      const paginas = obterPaginas();
+
+      if (numero < 1) {
+        numero = 1;
+      }
+
+      if (numero > paginas.length) {
+        numero = paginas.length;
+      }
+
+      paginaAtual = numero;
+
+      paginas[paginaAtual - 1].scrollIntoView({
+        behavior: "smooth",
+        block: "start"
+      });
+
+      atualizarContador();
+
+    }
+
+
+
+    function proxima() {
+
+      if (paginaAtual < totalPaginas) {
+        mostrarPagina(paginaAtual + 1);
+      }
+
+    }
+
+
+
+    function anterior() {
+
+      if (paginaAtual > 1) {
+        mostrarPagina(paginaAtual - 1);
+      }
+
+    }
+
+
+
+    function atualizarContador() {
+
+      const contador =
+        document.getElementById("contador");
+
+      if (!contador) return;
+
+      const atual =
+        String(paginaAtual).padStart(2, "0");
+
+      const total =
+        String(totalPaginas).padStart(2, "0");
+
+      contador.textContent =
+        `${atual} / ${total}`;
+
+    }
+
+
+
+    /* -----------------------------------------------------
+       ATUALIZA A PÁGINA CONFORME O SCROLL
+    ----------------------------------------------------- */
+
+    window.addEventListener("scroll", () => {
+
+      const paginas = obterPaginas();
+
+      if (!paginas.length) return;
+
+      const meioTela =
+        window.scrollY + window.innerHeight / 2;
+
+      paginas.forEach((pagina, index) => {
+
+        const inicio = pagina.offsetTop;
+        const fim = inicio + pagina.offsetHeight;
+
+        if (
+          meioTela >= inicio &&
+          meioTela < fim
+        ) {
+
+          paginaAtual = index + 1;
+
+          atualizarContador();
+
+        }
+
+      });
+
+    });
+
+
+    /* -----------------------------------------------------
+       TECLADO
+    ----------------------------------------------------- */
+
+    document.addEventListener("keydown", (evento) => {
+
+      if (evento.key === "ArrowRight") {
+        proxima();
+      }
+
+      if (evento.key === "ArrowLeft") {
+        anterior();
+      }
+
+    });
+
+
+    /* -----------------------------------------------------
+       INICIALIZAÇÃO
+    ----------------------------------------------------- */
+
+    atualizarContador();
+
+  </script>
+
+
+</body>
+</html>
